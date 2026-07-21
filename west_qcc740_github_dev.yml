@@ -1,0 +1,50 @@
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+# SPDX-License-Identifier: BSD-3-Clause
+manifest:
+  remotes:
+    - name: qcom_github
+      #url-base: https://github.com/ccwiot
+      url-base: git@github.com:ccwiot
+    - name: qcom_zephyrproject-rtos
+      url-base: ssh://review-android.quicinc.com:29418/qzephyr/zephyrproject-rtos
+    - name: org_zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+  defaults:
+    remote: qcom_github
+    revision: main
+  projects:
+    - name: zephyr
+      #remote: org_zephyrproject-rtos
+      remote: qcom_zephyrproject-rtos
+      revision: v4.4.0
+      import:
+        # By using name-allowlist we can clone only the modules that are
+        # strictly needed by the application.
+        name-allowlist:
+          #- mbedtls
+          #- hal_st
+          - littlefs
+          - fatfs        # FAT filesystem (SD/SDHC storage samples)
+          #- lvgl
+          #- mcuboot
+          #- openthread
+          - zcbor      # for c++ programming
+          #- tf-psa-crypto  # mbedtls PSA crypto core (Zephyr 4.4)
+    - name: mbedtls
+      remote: qcom_zephyrproject-rtos
+      revision: a3e190fe44c78d1ba67f55979e1257328cc7d0d8
+      path: modules/crypto/mbedtls
+    - name: tf-psa-crypto
+      remote: qcom_zephyrproject-rtos
+      revision: dc575a2ddcc8cb16275d24c42a52eaf79ebe2231
+      path: modules/crypto/tf-psa-crypto
+    - name: qcc74x-zephyr
+      path: qcc74x-zephyr
+    - name: qcc74x-zephyr-hal
+      path: modules/hal/qcom/qcc74x
+    - name: qcc74x-zephyr-app
+      path: qapp/qcc74x
+    #- name: qcc74x_bin_src
+    #  path: prop/qcc74x_bin_src
+    #- name: qcc74x-bin
+    #  path: prop/qcc74x-bin

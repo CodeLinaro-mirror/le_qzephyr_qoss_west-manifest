@@ -1,0 +1,43 @@
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+# SPDX-License-Identifier: Apache-2.0;
+manifest:
+  remotes:
+    - name: oss
+      url-base: ssh://review-android.quicinc.com:29418/qccsdk/oss
+    - name: prop
+      url-base: ssh://review-android.quicinc.com:29418/qccsdk/prop
+  defaults:
+    remote: oss
+    revision: fermion.iot.1.1.r1-rel
+  projects:
+    - name: qccsdkmain
+      path: qccsdk
+    - name: mbedtls
+      path: comp/mbedtls
+    - name: lwip
+      path: comp/lwip
+    - name: posix
+      path: comp/posix
+    - name: qurt
+      path: comp/qurt
+    - name: segger-rtt
+      path: comp/segger-rtt
+    - name: freertos-kernel
+      path: comp/freertos
+    - name: backoffAlgorithm
+      path: comp/backoffAlgorithm
+    - name: mqtt
+      path: comp/mqtt
+    - name: littlefs
+      path: comp/littlefs
+    - name: exhost
+      path: comp/exhost
+    - name: matter
+      path: comp/matter
+    - name: qtcapy
+      path: comp/qtcapy
+    - name: hostap
+      path: comp/hostap
+    - name: wlan
+      remote: prop
+      path: comp/wifi

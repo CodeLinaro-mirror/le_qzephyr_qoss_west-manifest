@@ -1,0 +1,60 @@
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+# SPDX-License-Identifier: BSD-3-Clause
+manifest:
+  remotes:
+    - name: upstream
+      url-base: ssh://review-android.quicinc.com:29418/qzephyr/upstream
+    - name: qoss
+      url-base: ssh://review-android.quicinc.com:29418/qzephyr/qoss
+    - name: 3rdparty
+      url-base: ssh://review-android.quicinc.com:29418/qzephyr/3rdparty
+    - name: oss
+      url-base: ssh://review-android.quicinc.com:29418/qccsdk/oss
+    - name: prop
+      url-base: ssh://review-android.quicinc.com:29418/qzephyr/prop
+    - name: zephyrproject-rtos
+      url-base: ssh://review-android.quicinc.com:29418/qzephyr/zephyrproject-rtos
+  defaults:
+    remote: zephyrproject-rtos
+    revision: main
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4.0
+      import:
+        # By using name-allowlist we can clone only the modules that are
+        # strictly needed by the application.
+        name-allowlist:
+          - zcbor      # for c++ programming
+    - name: mbedtls
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4.0
+      path: modules/crypto/mbedtls
+    - name: tf-psa-crypto
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4.0
+      path: modules/crypto/tf-psa-crypto
+    - name: littlefs
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4.0
+      path: modules/fs/littlefs
+    - name: lvgl
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4.0
+      path: modules/lib/gui/lvgl
+    - name: fatfs
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4.0
+      path: modules/fs/fatfs
+    - name: qcc74x-zephyr
+      remote: upstream
+      revision: qcc740.qzephyr.1.0
+      path: qcc74x-zephyr
+    - name: qcc74x-zephyr-hal
+      remote: upstream
+      revision: qcc740.qzephyr.1.0
+      path: modules/hal/qcom/qcc74x
+    - name: qcc74x-zephyr-app
+      remote: qoss
+      revision: qcc740.qzephyr.1.0
+      path: qapp/qcc74x
