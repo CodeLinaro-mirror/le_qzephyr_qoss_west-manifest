@@ -20,7 +20,7 @@ manifest:
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
-      revision: core.qzephyr.4.4.0
+      revision: core.qzephyr.4.4
       import:
         # By using name-allowlist we can clone only the modules that are
         # strictly needed by the application.
@@ -28,23 +28,23 @@ manifest:
           - zcbor      # for c++ programming
     - name: mbedtls
       remote: zephyrproject-rtos
-      revision: core.qzephyr.4.4.0
+      revision: core.qzephyr.4.4
       path: modules/crypto/mbedtls
     - name: tf-psa-crypto
       remote: zephyrproject-rtos
-      revision: core.qzephyr.4.4.0
+      revision: core.qzephyr.4.4
       path: modules/crypto/tf-psa-crypto
     - name: littlefs
       remote: zephyrproject-rtos
-      revision: core.qzephyr.4.4.0
+      revision: core.qzephyr.4.4
       path: modules/fs/littlefs
     - name: lvgl
       remote: zephyrproject-rtos
-      revision: core.qzephyr.4.4.0
+      revision: core.qzephyr.4.4
       path: modules/lib/gui/lvgl
     - name: fatfs
       remote: zephyrproject-rtos
-      revision: core.qzephyr.4.4.0
+      revision: core.qzephyr.4.4
       path: modules/fs/fatfs
     - name: qcc74x-zephyr
       remote: upstream
