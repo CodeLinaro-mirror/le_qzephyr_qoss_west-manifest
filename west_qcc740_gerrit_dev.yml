@@ -47,6 +47,10 @@ manifest:
       remote: zephyrproject-rtos
       revision: core.qzephyr.4.4
       path: modules/fs/fatfs
+    - name: mcuboot
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4
+      path: bootloader/mcuboot
     - name: qcc74x-zephyr
       remote: upstream
       revision: qcc740.qzephyr.1.0
