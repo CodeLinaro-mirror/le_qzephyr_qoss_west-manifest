@@ -26,7 +26,6 @@ manifest:
         # strictly needed by the application.
         name-allowlist:
           - zcbor      # for c++ programming
-          - mcuboot    # image management support required by benchi
     - name: mbedtls
       remote: zephyrproject-rtos
       revision: core.qzephyr.4.4
@@ -47,6 +46,14 @@ manifest:
       remote: zephyrproject-rtos
       revision: core.qzephyr.4.4
       path: modules/fs/fatfs
+    - name: mcuboot
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4
+      path: bootloader/mcuboot
+    - name: openthread
+      remote: zephyrproject-rtos
+      revision: core.qzephyr.4.4
+      path: modules/lib/openthread
     - name: qcc74x-zephyr
       remote: upstream
       revision: qcc740.qzephyr.1.0

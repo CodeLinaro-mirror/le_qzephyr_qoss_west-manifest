@@ -1,0 +1,56 @@
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+# SPDX-License-Identifier: BSD-3-Clause-Clear;
+manifest:
+  remotes:
+    - name: upstream
+      url-base: https://git.codelinaro.org/clo/le/qzephyr/upstream
+    - name: qoss
+      url-base: https://git.codelinaro.org/clo/le/qzephyr/qoss
+    - name: zephyrproject-rtos
+      url-base: https://git.codelinaro.org/clo/le/qzephyr/zephyrproject-rtos
+  defaults:
+    remote: zephyrproject-rtos
+    revision: IOT.OPALZE.1.0.r1-00600-QCC740.0
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      import:
+        # By using name-allowlist we can clone only the modules that are
+        # strictly needed by the application.
+        name-allowlist:
+          - zcbor      # for c++ programming
+    - name: mbedtls
+      remote: zephyrproject-rtos
+      path: modules/crypto/mbedtls
+    - name: littlefs
+      remote: zephyrproject-rtos
+      path: modules/fs/littlefs
+    - name: tf-psa-crypto
+      remote: zephyrproject-rtos
+      path: modules/crypto/tf-psa-crypto
+    - name: zcbor
+      remote: zephyrproject-rtos
+      path: modules/lib/zcbor
+    - name: fatfs
+      remote: zephyrproject-rtos
+      path: modules/fs/fatfs
+    - name: mcuboot
+      remote: zephyrproject-rtos
+      path: bootloader/mcuboot
+    - name: openthread
+      remote: zephyrproject-rtos
+      path: modules/lib/openthread
+    - name: lvgl
+      remote: zephyrproject-rtos
+      path: modules/lib/gui/lvgl
+    - name: qcc74x-zephyr-app
+      remote: qoss
+      path: qapp/qcc74x
+    - name: qcc74x-zephyr
+      remote: upstream
+      path: qcc74x-zephyr
+    - name: qcc74x-zephyr-hal
+      remote: upstream
+      path: modules/hal/qcom/qcc74x
+  self:
+    west-commands: zephyr/scripts/west-commands.yml
