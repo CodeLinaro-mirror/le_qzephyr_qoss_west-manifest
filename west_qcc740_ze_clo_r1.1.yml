@@ -10,7 +10,7 @@ manifest:
       url-base: https://git.codelinaro.org/clo/le/qzephyr/zephyrproject-rtos
   defaults:
     remote: zephyrproject-rtos
-    revision: IOT.OPALZE.1.0.r1-01200-QCC740.0
+    revision: IOT.OPALZE.1.0.r1-01300-QCC740.0
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
